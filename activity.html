@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Sketchbook & Study Notes</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff8f0;
+      color: #3b2f2f;
+    }
+    h2 {
+      color: #d1495b;
+      border-bottom: 3px dashed #d1495b;
+      padding-bottom: 4px;
+      margin-top: 40px;
+    }
+    figcaption { font-style: italic; color: #777; font-size: 0.9em; }
+    mark { background: #ffe066; }
+    pre { background: #fceee3; padding: 10px; border-radius: 8px; }
+    nav a {
+      margin-right: 12px;
+      text-decoration: none;
+      color: #d1495b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="main-heading">🎨 My Sketchbook & Study Notes</h1>
+  <p>A little corner of the web about drawing, tutoring, and everything in between.</p>
+
+  <nav>
+    <a href="#images-section">Artworks</a>
+    <a href="#hyperlinks-section">Links</a>
+    <a href="#multimedia-section">Sounds & Clips</a>
+    <a href="#tags-section">Extras</a>
+    <a href="#dom-section">Behind the Page</a>
+  </nav>
+
+
+  <h2 id="images-section">🖍️ My Artworks</h2>
+
+  <img src="images/6a73c3ee-1ccf-4bd5-8038-13c30a17e9f8.jpg" alt="Acrylic marker illustration of Miles Morales and Gwen Stacy from Spider-Man: Into the Spider-Verse, shown from behind, gazing out over a colorful, abstract city skyline together." width="400" />
+
+  <img src="images/0381bbe7-76bd-4b71-ae8c-8e0c90c71319.jpg" alt="Comic-style pencil sketch depicting Gwen Stacy's fall — the tragic, pivotal moment from The Amazing Spider-Man (2012)." width="400" height="400" />
+
+  <figure id="figure-photo3">
+    <img src="images/2c54bcf4-123a-447c-95ba-8e1ef3f41891.jpg" alt="Comic-style pencil sketch depicting Gwen Stacy's fall — the tragic, pivotal moment from The Amazing Spider-Man (2012)." width="400" />
+    <figcaption>Peter Parker in charcoal — proof I can be soft with graphite too.</figcaption>
+  </figure>
+
+
+  <h2 id="hyperlinks-section">🔗 Where to Find Things</h2>
+
+  <p>Curious how this page is built? <a href="#dom-section">Peek behind the scenes</a>.</p>
+
+  <p>Want to say hi? <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lorrainejadegulle@gmail.com" target="_blank">Email me here</a>.</p>
+
+  <p>Skip ahead to the <a href="#tags-section">fun extras</a>.</p>
+
+
+  <h2 id="multimedia-section">🎧 Sounds & Clips</h2>
+
+  <p>Study playlist snippet:</p>
+  <audio controls>
+    <source src="audio/study-piano-30min.mp3" type="audio/mpeg" />
+    Can't play audio here? <a href="audio/study-piano-30min.mp3">Download it instead</a>.
+  </audio>
+
+  <p>A quick sketching timelapse:</p>
+  <video controls width="400">
+    <source src="video/head-profile-sketch-timelapse.mp4" type="video/mp4" />
+    Can't play video here? <a href="video/head-profile-sketch-timelapse.mp4">Download it instead</a>.
+  </video>
+
+  <h2 id="tags-section">✨ Extras</h2>
+
+  <!-- blockquote: a quote that keeps me motivated while studying -->
+  <blockquote>"Practice like you've never won. Perform like you've never lost."</blockquote>
+
+  <!-- abbr: explains a term without cluttering the sentence -->
+  <p>My favorite subject to teach is <abbr title="Science, Technology, Engineering, Arts, and Mathematics">STEAM</abbr>.</p>
+
+  <!-- mark: draws attention to the one thing I don't want forgotten -->
+  <p>Reminder to myself: <mark>keep sketching every day, even 5 minutes counts</mark>.</p>
+
+  <!-- code/pre: shares a tiny snippet exactly as I'd type it, spacing intact -->
+  <pre><code>tip: warm up with 10 quick doodles before starting real art</code></pre>
+
+  <p>&copy; 2026 — made with crayons and curiosity.</p>
+
+
+  <h2 id="dom-section">🔍 Behind the Page</h2>
+
+  <p id="dom-explanation">
+    Here's a peek at how this page is structured under the hood — a screenshot from
+    the browser's DevTools showing the DOM tree.
+  </p>
+
+  <figure id="dom-screenshot-figure">
+    <img src="images/dom-tree.png" alt="Screenshot of the DOM tree shown in browser DevTools" width="500" />
+    <figcaption>The DOM tree, straight from Chrome DevTools.</figcaption>
+  </figure>
+
+  <!--
+    Parent-child relationship explanation:
+
+    The <body> element is the parent of every section on this page, including the
+    <h1 id="main-heading"> and each <h2>. Inside the Artworks section, the
+    <figure id="figure-photo3"> is the parent of both its <img> and <figcaption>,
+    making them sibling elements under the same figure. The <nav> element is the
+    parent of four separate <a> tags, one per link in the navigation bar. This
+    shows how HTML nests smaller elements inside larger container elements to
+    build the page's tree structure.
+  -->
+
+</body>
+</html>
