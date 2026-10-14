@@ -1,0 +1,187 @@
+/* ===== Reset ===== */
+/* Universal selector: simple reset (Part B) + border-box sizing (Part C) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Base / Typography ===== */
+/* Type selector: body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;              /* rem unit */
+  line-height: 1.5em;           /* em unit */
+  background-color: #e8e7e4;    /* hex code */
+  color: rgb(193, 83, 94);      /* rgb() */
+}
+
+/* Grouping selector: h1 and h2 share one rule.
+   (No text-align here, so the h1 inherits the centered alignment from header.) */
+h1, h2 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #444444;               /* loses to ".card h2" below: lower specificity */
+}
+
+/* ===== Layout ===== */
+/* Center the text in header and footer */
+header,
+footer {
+  text-align: center;
+  padding: 20px 10%;            /* % unit */
+  background-color: rgba(227, 56, 79, 0.9);   /* rgba() */
+  color: white;                 /* color name */
+}
+
+main {
+  padding: 20px 0;
+}
+
+/* Class selector: .card
+   Fixed width, padding, border, centered with margin 0 auto,
+   and margin-bottom to space the cards apart */
+.card {
+  width: 500px;
+  padding: 20px;
+  border: 2px solid #e881af;
+  border-radius: 10px;
+  margin: 0 auto 20px;
+  background-color: white;
+}
+
+/* Descendant selector: any p inside a .card */
+.card p {
+  color: #a8323f;
+}
+
+/* Cascade: both rules target the h2 inside a .card.
+   ".card h2" (0,1,1) beats "h2" (0,0,1) -> the pink color wins
+   because of higher specificity, not because of order. */
+.card h2 {
+  color: rgb(220, 20, 110);
+}
+
+/* Class selector: .intro
+   Cascade, same specificity: both rules are (0,1,0) and the later one wins. */
+.intro {
+  color: gray;                  /* overridden by the next rule */
+}
+
+.intro {
+  color: rgb(214, 20, 110);     /* WINS: same specificity, but it comes last */
+  font-style: italic;
+}
+
+/* Pseudo-element: first letter of .intro */
+.intro::first-letter {
+  font-size: 2em;
+  font-weight: bold;
+  color: rgb(237, 52, 89);
+}
+
+/* ===== Positioning ===== */
+/* ID selector: stands out from the other cards (different border color) */
+#about {
+  border-color: rgb(226, 105, 129);
+  position: relative;           /* anchor for the badge */
+}
+
+/* Small badge placed in the top-right corner of #about */
+#about::after {
+  content: "NEW";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  color: white;
+  background-color: crimson;
+  border-radius: 10px;
+}
+
+/* ===== Navigation (display: inline-block) ===== */
+nav a {
+  display: inline-block;
+  width: 90px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 5px;
+  margin: 10px 4px 0;
+  background-color: white;
+  color: #b0303f;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Pseudo-class: hover effect on nav links */
+nav a:hover {
+  background-color: rgb(207, 32, 82);
+  color: white;
+}
+
+/* ===== Skills list (display: flex) ===== */
+.skills-list {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  list-style: none;
+}
+
+/* Child selector: direct li of .skills-list, styled like a small tag */
+.skills-list > li {
+  padding: 4px 12px;
+  background-color: #dbe7ff;
+  border: 1px solid #e1717b;
+  border-radius: 15px;
+  font-size: 0.875rem;
+  color: #444444;
+}
+
+/* ===== Display vs Visibility ===== */
+.hide-none {
+  display: none;
+}
+
+.hide-visibility {
+  visibility: hidden;
+}
+
+/* display: none removes the element from the layout entirely, so the
+   .hide-none paragraph leaves no gap. visibility: hidden only makes the
+   element invisible; the .hide-visibility paragraph still takes up its
+   space, leaving a blank gap on the page. */
+
+/* ===== Overflow ===== */
+.scroll-box {
+  height: 120px;
+  overflow: auto;               /* scrollbar appears when content is too tall */
+}
+
+/* ===== Width calculation =====
+   One .card: width 500px, padding 20px (left+right = 40px), border 2px (left+right = 4px).
+   With box-sizing: border-box, the rendered width = 500px (padding and border are inside it).
+   Total rendered width of one .card = 500px. */
+
+/* ===== Reflection Answers =====
+   1. The rule ".card h2 { color: rgb(220, 20, 110); }" (pink) beat
+      "h2 { color: #444444; }" because it has higher specificity (class + element
+      is stronger than element only), no matter which one comes first. For the two
+      ".intro" rules, specificity is equal, so source order decided it and the
+      later rule (the pink rgb color) won over the earlier gray one.
+
+   2. If .card were content-box, the rendered width would be 500px (content) + 40px
+      (padding: 20 + 20) + 4px (border: 2 + 2) = 544px. With border-box, padding and
+      border are included in the 500px, so it stays exactly 500px wide.
+
+   3. I'd choose visibility: hidden when I want an element to be invisible but still keep
+      its space, so the layout doesn't shift (for example, a placeholder or a tooltip that
+      appears later). display: none is better when the element should be gone completely.
+*/
